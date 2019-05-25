@@ -143,6 +143,22 @@ export class GenericFormComponent<TModel extends BaseModel, TService extends Cru
         return this.getLocation().slice(0, Math.max(this.getLocation().lastIndexOf('/'), 1));
     }
 
+    setInputFormat(input): void {
+        if (input.value.length > 0) {
+            const regex = /[a-z]/g;
+            const matches = input.value[0].match(regex);
+            if (matches) {
+                const char = input.value[0].toUpperCase();
+                let input_result = input.value;
+                input_result = input_result.slice(1, input.value.length);
+                input.value = char.concat(input_result);
+                if (this.obj[input.name] !== undefined) {
+                    this.obj[input.name] = input.value;
+                }
+            }
+        }
+    }
+
     returnScreen() {
         if (!this.modal) {
             if (this.edit) {

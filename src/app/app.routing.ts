@@ -12,6 +12,10 @@ export const AppRoutes: Routes = [
                 path: 'dashboard',
                 loadChildren: './views/dashboard/dashboard.module#DashboardModule',
             },
+            {
+                path: 'funcionario',
+                loadChildren: './views/funcionario/funcionario.module#FuncionarioModule',
+            },
         ]
     },
     {

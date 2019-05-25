@@ -3,6 +3,7 @@ export const WS_URL = 'http://localhost:7500/gerente/';
 export const Constant = {
     BASE_URL: WS_URL + 'rest/',
     FILE: 'file/',
+    FUNCIONARIO: 'funcionario/',
     MEDIA_TYPE:
     {
         PICTURE_2D: 'PICTURE2D',

@@ -30,6 +30,16 @@ export const ROUTES: RouteInfo[] = [
         type: 'link',
         icontype: 'dashboard'
     },
+    {
+        path: '/funcionario',
+        title: 'Pessoas',
+        type: 'sub',
+        icontype: 'extension',
+        collapse: 'Pessoas',
+        children: [
+            { path: 'registros', title: 'Lista de Funcionarios', ab: 'LF' },
+        ]
+    },
 ];
 @Component({
     selector: 'app-sidebar-cmp',

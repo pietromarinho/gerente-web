@@ -23,6 +23,7 @@ import { NavbarModule } from './shared/navbar/navbar.module';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { PeriodComponent } from './reports/period/period.component';
 import { CpfService } from './service/cpf/cpf.service';
+import { FuncionarioService } from './service/funcionario/funcionario.service';
 
 export function httpFactory(xhrBackend: XHRBackend, requestOptions: RequestOptions, loaderService: LoaderService): Http {
   return new InterceptedHttp(xhrBackend, requestOptions, loaderService);
@@ -99,7 +100,8 @@ export class MaterialModule { }
     ToastService,
     ErrorService,
     LoaderService,
-    CpfService
+    CpfService,
+    FuncionarioService,
   ],
   bootstrap: [AppComponent]
 })
