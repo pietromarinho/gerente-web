@@ -38,6 +38,7 @@ export const ROUTES: RouteInfo[] = [
         collapse: 'Pessoas',
         children: [
             { path: 'registros', title: 'Lista de Funcionarios', ab: 'LF' },
+            { path: 'funcao', title: 'Lista de Funções', ab: 'LF' },
         ]
     },
 ];

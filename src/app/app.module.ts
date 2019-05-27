@@ -24,6 +24,7 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { PeriodComponent } from './reports/period/period.component';
 import { CpfService } from './service/cpf/cpf.service';
 import { FuncionarioService } from './service/funcionario/funcionario.service';
+import { FuncaoService } from './service/funcao/funcao.service';
 
 export function httpFactory(xhrBackend: XHRBackend, requestOptions: RequestOptions, loaderService: LoaderService): Http {
   return new InterceptedHttp(xhrBackend, requestOptions, loaderService);
@@ -102,6 +103,7 @@ export class MaterialModule { }
     LoaderService,
     CpfService,
     FuncionarioService,
+    FuncaoService,
   ],
   bootstrap: [AppComponent]
 })

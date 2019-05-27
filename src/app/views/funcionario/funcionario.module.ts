@@ -7,6 +7,8 @@ import { MdModule } from 'app/md/md.module';
 import { FuncionarioFormComponent } from './funcionario-form/funcionario-form.component';
 import { FuncionarioListComponent } from './funcionario-list/funcionario-list.component';
 import { FuncionarioRouter } from './Funcionario.routing';
+import { FuncaoFormComponent } from './funcao-form/funcao-form.component';
+import { FuncaoListComponent } from './funcao-list/funcao-list.component';
 
 @NgModule({
   imports: [
@@ -17,6 +19,6 @@ import { FuncionarioRouter } from './Funcionario.routing';
     MdModule,
     MaterialModule,
   ],
-  declarations: [FuncionarioFormComponent, FuncionarioListComponent]
+  declarations: [FuncionarioFormComponent, FuncionarioListComponent, FuncaoFormComponent, FuncaoListComponent]
 })
 export class FuncionarioModule { }

@@ -4,6 +4,7 @@ export const Constant = {
     BASE_URL: WS_URL + 'rest/',
     FILE: 'file/',
     FUNCIONARIO: 'funcionario/',
+    FUNCAO: 'funcao/',
     MEDIA_TYPE:
     {
         PICTURE_2D: 'PICTURE2D',

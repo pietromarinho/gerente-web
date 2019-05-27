@@ -159,6 +159,10 @@ export class GenericFormComponent<TModel extends BaseModel, TService extends Cru
         }
     }
 
+    alreadyHasName(objects: any[]): boolean {
+        return objects.find(objs => this.obj.name === objs.name && objs.id !== this.obj.id) ? true : false;
+    }
+
     returnScreen() {
         if (!this.modal) {
             if (this.edit) {

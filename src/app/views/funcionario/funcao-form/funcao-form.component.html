@@ -1,0 +1,45 @@
+<div class="modal fade generic-modal" id="funcaoModal" tabindex="-1" role="dialog" aria-labelledby="funcaoModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="card-header card-header-icon" data-background-color="parking">
+        <i *ngIf="edit" class="material-icons">edit</i>
+        <i *ngIf="!edit" class="material-icons">add</i>
+      </div>
+      <h5 class="modal-title">
+        <strong *ngIf="edit">Editar Função</strong>
+        <strong *ngIf="!edit">Nova Função</strong>
+      </h5>
+
+      <div class="modal-body">
+
+        <form class="form-horizontal" #funcaoForm="ngForm">
+
+          <div class="row">
+            <div class="col-sm-12">
+              <mat-form-field>
+                <input matInput #nameFuncao [(ngModel)]="obj.name" placeholder="Nome" name="name" type="text"
+                  (ngModelChange)="setInputFormat(nameFuncao)" pattern="(^([A-ZÀ-ÖØ-Ÿ])+([\S]?)+(\s[\S]+)*$)"
+                  maxlength="50" required>
+              </mat-form-field>
+              <p *ngIf="alreadyHasName(funcoes)" class="text-danger">
+                Nome já cadastrado, altere o nome*
+              </p>
+            </div>
+          </div>
+
+          <div class="row btn-space">
+            <button (click)="clearForm(funcaoForm)" type="button" class='btn btn-round  pull-left'>Limpar</button>
+
+            <button (click)="updateOrCreate('#funcaoModal')" type="submit"
+              class='btn btn-finish btn-fill btn-round btn-parking pull-right'
+              [disabled]="!funcaoForm.form.valid || checkForm()">Salvar</button>
+
+            <button (click)="closeModal()" class='btn btn-round  pull-right'>Voltar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
