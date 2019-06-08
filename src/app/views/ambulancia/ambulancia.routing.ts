@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { AmbulanciaTypeListComponent } from './ambulancia-type-list/ambulancia-type-list.component';
+import { AmbulanciaListComponent } from './ambulancia-list/ambulancia-list.component';
 
 export const AmbulanciaRouter: Routes = [
     {
@@ -11,7 +12,7 @@ export const AmbulanciaRouter: Routes = [
                 pathMatch: 'full'
             }, {
                 path: 'registros',
-                // component: AmbulanciaListComponent,
+                component: AmbulanciaListComponent,
             },
             {
                 path: 'tipo',

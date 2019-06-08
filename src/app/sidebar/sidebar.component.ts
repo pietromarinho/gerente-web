@@ -48,7 +48,7 @@ export const ROUTES: RouteInfo[] = [
         icontype: 'extension',
         collapse: 'Ambulâncias',
         children: [
-            // { path: 'registros', title: 'Lista de Funcionarios', ab: 'LF' },
+            { path: 'registros', title: 'Lista de Ambulâncias', ab: 'LA' },
             { path: 'tipo', title: 'Lista de Categorias', ab: 'LC' },
         ]
     },

@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MdModule } from 'app/md/md.module';
 import { MaterialModule } from 'app/app.module';
+import { AmbulanciaFormComponent } from './ambulancia-form/ambulancia-form.component';
+import { AmbulanciaListComponent } from './ambulancia-list/ambulancia-list.component';
 
 @NgModule({
   imports: [
@@ -17,6 +19,6 @@ import { MaterialModule } from 'app/app.module';
     MdModule,
     MaterialModule,
   ],
-  declarations: [AmbulanciaTypeListComponent, AmbulanciaTypeFormComponent]
+  declarations: [AmbulanciaTypeListComponent, AmbulanciaTypeFormComponent, AmbulanciaFormComponent, AmbulanciaListComponent]
 })
 export class AmbulanciaModule { }
