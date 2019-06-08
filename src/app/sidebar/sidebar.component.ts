@@ -41,6 +41,17 @@ export const ROUTES: RouteInfo[] = [
             { path: 'funcao', title: 'Lista de Funções', ab: 'LF' },
         ]
     },
+    {
+        path: '/ambulancia',
+        title: 'Ambulâncias',
+        type: 'sub',
+        icontype: 'extension',
+        collapse: 'Ambulâncias',
+        children: [
+            // { path: 'registros', title: 'Lista de Funcionarios', ab: 'LF' },
+            { path: 'tipo', title: 'Lista de Categorias', ab: 'LC' },
+        ]
+    },
 ];
 @Component({
     selector: 'app-sidebar-cmp',

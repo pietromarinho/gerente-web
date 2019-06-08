@@ -80,7 +80,7 @@ export class GenericFormComponent<TModel extends BaseModel, TService extends Cru
     updateOrCreate(idModal?: string) {
         // tslint:disable-next-line:no-shadowed-variable
         const onError = function (error) {
-            this.toast(error.headers.get("error"), MessageType.ERROR);
+            this.toast(error.headers.get('error'), MessageType.ERROR);
         }.bind(this);
 
         try {

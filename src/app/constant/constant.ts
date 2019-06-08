@@ -5,6 +5,7 @@ export const Constant = {
     FILE: 'file/',
     FUNCIONARIO: 'funcionario/',
     FUNCAO: 'funcao/',
+    AMBULANCIA: 'ambulancia/',
     MEDIA_TYPE:
     {
         PICTURE_2D: 'PICTURE2D',

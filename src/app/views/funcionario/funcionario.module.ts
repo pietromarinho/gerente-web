@@ -6,7 +6,7 @@ import { MaterialModule } from 'app/app.module';
 import { MdModule } from 'app/md/md.module';
 import { FuncionarioFormComponent } from './funcionario-form/funcionario-form.component';
 import { FuncionarioListComponent } from './funcionario-list/funcionario-list.component';
-import { FuncionarioRouter } from './Funcionario.routing';
+import { FuncionarioRouter } from './funcionario.routing';
 import { FuncaoFormComponent } from './funcao-form/funcao-form.component';
 import { FuncaoListComponent } from './funcao-list/funcao-list.component';
 

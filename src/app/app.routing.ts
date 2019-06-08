@@ -16,6 +16,10 @@ export const AppRoutes: Routes = [
                 path: 'funcionario',
                 loadChildren: './views/funcionario/funcionario.module#FuncionarioModule',
             },
+            {
+                path: 'ambulancia',
+                loadChildren: './views/ambulancia/ambulancia.module#AmbulanciaModule',
+            },
         ]
     },
     {
