@@ -18,7 +18,6 @@ declare var $: any;
 export class FuncionarioFormComponent extends GenericFormComponent<Funcionario, FuncionarioService> {
   @ViewChild('funcionarioForm') funcionarioForm: NgForm;
 
-  id_funcao: string;
   funcoes: Funcao[] = [];
 
   constructor(
@@ -32,15 +31,9 @@ export class FuncionarioFormComponent extends GenericFormComponent<Funcionario, 
     super(router, activatedRoute, service, location, Funcionario);
   }
 
-  beforeSave() {
-    this.getFuncao();
-  }
-
   public initModal(funcionario?: Funcionario): void {
-    this.id_funcao = '';
     if (funcionario) {
       Object.assign(this.obj, funcionario);
-      this.id_funcao = this.obj.funcao.id;
       this.edit = true;
     } else {
       this.obj = new Funcionario();
@@ -61,14 +54,6 @@ export class FuncionarioFormComponent extends GenericFormComponent<Funcionario, 
         this.funcoes = success;
       }
     );
-  }
-
-  getFuncao() {
-    this.funcaoService.getOne(this.id_funcao).subscribe(
-      success => {
-        this.obj.funcao = success;
-      }
-    )
   }
 
   getHolderFuncao(): string {

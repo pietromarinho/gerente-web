@@ -32,6 +32,12 @@
                   <mat-cell *matCellDef="let item"> {{ item.name }} </mat-cell>
                 </ng-container>
 
+                <ng-container matColumnDef="matricula">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Matrícula
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let item"> {{ item.matricula }} </mat-cell>
+                </ng-container>
+
                 <ng-container matColumnDef="funcao">
                   <mat-header-cell *matHeaderCellDef mat-sort-header> Função
                   </mat-header-cell>

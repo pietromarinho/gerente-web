@@ -18,7 +18,7 @@
 
           <div class="row">
 
-            <div class="col-sm-6">
+            <div class="col-sm-4">
               <mat-form-field>
                 <input matInput #nameFuncionario [(ngModel)]="obj.name" placeholder="Nome" name="name" type="text"
                   maxlength="255" (ngModelChange)="setInputFormat(nameFuncionario)"
@@ -26,9 +26,17 @@
               </mat-form-field>
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-sm-4">
               <mat-form-field>
-                <mat-select [(ngModel)]="id_funcao" placeholder="{{getHolderFuncao()}}" name="funcao" required>
+                <input matInput #matriculaFuncionario [(ngModel)]="obj.matricula" placeholder="Matrícula"
+                  name="matricula" type="text" maxlength="255" (ngModelChange)="setInputFormat(matriculaFuncionario)"
+                  pattern="(^([A-ZÀ-ÖØ-Ÿ])+([A-Za-zÀ-ÖØ-öø-ÿ]?)+(\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$)" required>
+              </mat-form-field>
+            </div>
+
+            <div class="col-sm-4">
+              <mat-form-field>
+                <mat-select [(ngModel)]="obj.funcao.id" placeholder="{{getHolderFuncao()}}" name="funcao" required>
                   <mat-option *ngFor="let funcao of funcoes" [value]="funcao.id">
                     {{ funcao.name }}
                   </mat-option>
