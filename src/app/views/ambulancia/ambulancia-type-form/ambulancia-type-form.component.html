@@ -1,0 +1,46 @@
+<div class="modal fade generic-modal" id="ambulanciaTypeModal" tabindex="-1" role="dialog"
+  aria-labelledby="ambulanciaTypeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="card-header card-header-icon" data-background-color="parking">
+        <i *ngIf="edit" class="material-icons">edit</i>
+        <i *ngIf="!edit" class="material-icons">add</i>
+      </div>
+      <h5 class="modal-title">
+        <strong *ngIf="edit">Editar Categoria</strong>
+        <strong *ngIf="!edit">Nova Categoria</strong>
+      </h5>
+
+      <div class="modal-body">
+
+        <form class="form-horizontal" #ambulanciaTypeForm="ngForm">
+
+          <div class="row">
+            <div class="col-sm-12">
+              <mat-form-field>
+                <input matInput #nameAmbulanciaType [(ngModel)]="obj.name" placeholder="Nome" name="name" type="text"
+                  (ngModelChange)="setInputFormat(nameAmbulanciaType)" pattern="(^([A-ZÀ-ÖØ-Ÿ])+([\S]?)+(\s[\S]+)*$)"
+                  maxlength="50" required>
+              </mat-form-field>
+              <p *ngIf="alreadyHasName(ambulancias)" class="text-danger">
+                Nome já cadastrado, altere o nome*
+              </p>
+            </div>
+          </div>
+
+          <div class="row btn-space">
+            <button (click)="clearForm(ambulanciaTypeForm)" type="button"
+              class='btn btn-round  pull-left'>Limpar</button>
+
+            <button (click)="updateOrCreate('#ambulanciaTypeModal')" type="submit"
+              class='btn btn-finish btn-fill btn-round btn-parking pull-right'
+              [disabled]="!ambulanciaTypeForm.form.valid || checkForm()">Salvar</button>
+
+            <button (click)="closeModal()" class='btn btn-round  pull-right'>Voltar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

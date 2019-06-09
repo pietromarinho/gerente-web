@@ -1,4 +1,4 @@
 import { BaseModel } from './base.model';
 
-export class Funcao extends BaseModel {
+export class Zona extends BaseModel {
 }
