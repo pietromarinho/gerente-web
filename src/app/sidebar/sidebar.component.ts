@@ -50,6 +50,7 @@ export const ROUTES: RouteInfo[] = [
         children: [
             { path: 'registros', title: 'Lista de Ambulâncias', ab: 'LA' },
             { path: 'tipo', title: 'Lista de Categorias', ab: 'LC' },
+            { path: 'zona', title: 'Lista de Zonas', ab: 'LZ' },
         ]
     },
 ];

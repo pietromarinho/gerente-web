@@ -9,6 +9,8 @@ import { MdModule } from 'app/md/md.module';
 import { MaterialModule } from 'app/app.module';
 import { AmbulanciaFormComponent } from './ambulancia-form/ambulancia-form.component';
 import { AmbulanciaListComponent } from './ambulancia-list/ambulancia-list.component';
+import { ZonaListComponent } from './zona-list/zona-list.component';
+import { ZonaFormComponent } from './zona-form/zona-form.component';
 
 @NgModule({
   imports: [
@@ -19,6 +21,6 @@ import { AmbulanciaListComponent } from './ambulancia-list/ambulancia-list.compo
     MdModule,
     MaterialModule,
   ],
-  declarations: [AmbulanciaTypeListComponent, AmbulanciaTypeFormComponent, AmbulanciaFormComponent, AmbulanciaListComponent]
+  declarations: [AmbulanciaTypeListComponent, AmbulanciaTypeFormComponent, AmbulanciaFormComponent, AmbulanciaListComponent, ZonaListComponent, ZonaFormComponent]
 })
 export class AmbulanciaModule { }
