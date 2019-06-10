@@ -2,11 +2,12 @@ import { Location } from '@angular/common';
 import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { GenericFormComponent } from 'app/views/generic/generic-form/generic-form.component';
 import { Ambulancia } from 'app/model/ambulancia.model';
-import { AmbulanciaService } from 'app/service/ambulancia/ambulancia.service';
 import { AmbulanciaType } from 'app/model/ambulancia_type.model';
+import { Funcao } from 'app/model/funcao.model';
+import { AmbulanciaService } from 'app/service/ambulancia/ambulancia.service';
 import { AmbulanciaTypeService } from 'app/service/ambulancia_type/ambulancia_type.service';
+import { GenericFormComponent } from 'app/views/generic/generic-form/generic-form.component';
 
 declare var $: any;
 
@@ -18,7 +19,8 @@ declare var $: any;
 export class AmbulanciaFormComponent extends GenericFormComponent<Ambulancia, AmbulanciaService> {
   @ViewChild('ambulanciaForm') ambulanciaForm: NgForm;
 
-  ambulancias: AmbulanciaType[] = [];
+  categorias: AmbulanciaType[] = [];
+  funcoes: Funcao[] = [];
 
   constructor(
     private ambulanciaTypeService: AmbulanciaTypeService,
@@ -34,12 +36,13 @@ export class AmbulanciaFormComponent extends GenericFormComponent<Ambulancia, Am
   public initModal(ambulancia?: Ambulancia): void {
     if (ambulancia) {
       Object.assign(this.obj, ambulancia);
+      this.funcoes = this.obj.ambulanciaType.funcoes;
       this.edit = true;
     } else {
       this.obj = new Ambulancia();
       this.edit = false;
     }
-    this.getFuncoes();
+    this.getCategorias();
     $('#ambulanciaModal').modal('show');
   }
 
@@ -47,17 +50,29 @@ export class AmbulanciaFormComponent extends GenericFormComponent<Ambulancia, Am
     $('#ambulanciaModal').modal('hide');
   }
 
-  getFuncoes() {
-    this.ambulancias = [];
+  getCategorias() {
+    this.categorias = [];
     this.ambulanciaTypeService.getAll().subscribe(
       success => {
-        this.ambulancias = success;
+        this.categorias = success;
       }
     );
   }
 
+  getFuncoesCategoria(id) {
+    this.funcoes = [];
+    if (id) {
+      this.ambulanciaTypeService.getOne(id).subscribe(
+        success => {
+          this.funcoes = success.funcoes;
+          console.log(this.funcoes);
+        }
+      );
+    }
+  }
+
   getHolderAmbulanciaType(): string {
-    return this.ambulancias.length > 0 ? 'Selecione a Categoria' : 'Sem Categorias Cadastradas';
+    return this.categorias.length > 0 ? 'Selecione a Categoria' : 'Sem Categorias Cadastradas';
   }
 
 }

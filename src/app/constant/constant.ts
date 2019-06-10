@@ -4,6 +4,7 @@ export const Constant = {
     BASE_URL: WS_URL + 'rest/',
     FILE: 'file/',
     FUNCIONARIO: 'funcionario/',
+    EQUIPE: 'equipe/',
     FUNCAO: 'funcao/',
     ZONA: 'zona/',
     AMBULANCIA: 'ambulancia/',

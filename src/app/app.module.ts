@@ -35,6 +35,8 @@ import { FuncaoService } from './service/funcao/funcao.service';
 import { AmbulanciaTypeService } from './service/ambulancia_type/ambulancia_type.service';
 import { AmbulanciaService } from './service/ambulancia/ambulancia.service';
 import { ZonaService } from './service/zona/zona.service';
+import { EquipeService } from './service/equipe/equipe.service';
+import { EquipeFormComponent } from './shared/equipe-form/equipe-form.component';
 
 export function httpFactory(xhrBackend: XHRBackend, requestOptions: RequestOptions, loaderService: LoaderService): Http {
   return new InterceptedHttp(xhrBackend, requestOptions, loaderService);
@@ -117,6 +119,7 @@ export class MaterialModule { }
     AmbulanciaTypeService,
     AmbulanciaService,
     ZonaService,
+    EquipeService,
   ],
   bootstrap: [AppComponent]
 })

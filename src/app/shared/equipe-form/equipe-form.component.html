@@ -1,0 +1,115 @@
+<div class="modal fade generic-modal" id="equipeModal" tabindex="-1" role="dialog" aria-labelledby="equipeModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="card-header card-header-icon" data-background-color="parking">
+        <i *ngIf="edit" class="material-icons">edit</i>
+        <i *ngIf="!edit" class="material-icons">add</i>
+      </div>
+      <h5 class="modal-title">
+        <strong *ngIf="edit">Editar Equipe</strong>
+        <strong *ngIf="!edit">Nova Equipe</strong>
+      </h5>
+
+      <div class="modal-body">
+
+        <form class="form-horizontal" #equipeForm="ngForm">
+
+          <div class="row">
+            <div class="col-sm-6">
+              <mat-form-field>
+                <mat-select [(ngModel)]="obj.ambulancia.id" (ngModelChange)="getName(obj.ambulancia.id)"
+                  placeholder="{{getHolderAmbulancia()}}" name="ambulancia" required>
+                  <mat-option *ngFor="let ambulancia of ambulancias" [value]="ambulancia.id">
+                    {{ ambulancia.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="col-sm-6">
+              <mat-form-field>
+                <input matInput #equipeName [(ngModel)]="obj.name" placeholder="Nome" name="name" type="text"
+                  (ngModelChange)="setInputFormat(equipeName)" pattern="(^([A-ZÀ-ÖØ-Ÿ])+([\S]?)+(\s[\S]+)*$)"
+                  maxlength="50">
+              </mat-form-field>
+            </div>
+
+            <div class="col-sm-10">
+              <app-autocomplete placeholder="{{getHolderFuncionarios()}}" [options]="slcFuncionarios"
+                name="funcionarios" [(ngModel)]="selectedFuncionario" (ngModelChange)="setFuncionario()">
+              </app-autocomplete>
+            </div>
+            <button type="button" class='btn btn-finish btn-fill btn-round btn-parking pull-right'
+              [disabled]="!selectFuncionario" (click)="addPFuncionario()">Adicionar</button>
+          </div>
+
+          <div class="row" *ngIf="obj.ambulancia.id">
+            <label class="color-parking">Funções Importantes</label>
+            <div class="align-funcoes">
+              <strong *ngFor="let funcao of funcoesImportantes; let i=index"> {{funcao.name}}
+                <span *ngIf="i < funcoesImportantes.length-1"> - </span>
+              </strong>
+              <hr>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="funcionariosSelecionados.length < 1">
+            <h3 class="text-center"><strong>Não há Funcionários na Equipe</strong></h3>
+          </div>
+
+          <div class="row" *ngIf="funcionariosSelecionados.length > 0">
+            <ul>
+              <li>
+                <div class="row">
+                  <div class="col-sm-5">
+                    <strong>Nome</strong>
+                  </div>
+                  <div class="col-sm-2">
+                    <strong>Matrícula</strong>
+                  </div>
+                  <div class="col-sm-2">
+                    <strong>Função</strong>
+                  </div>
+                  <div class="col-sm-3">
+                    <strong class="pull-right">Ações</strong>
+                  </div>
+                </div>
+              </li>
+              <hr>
+              <li class="listSup" *ngFor="let funcionario of funcionariosSelecionados; let i = index">
+                <div class="col-sm-5">
+                  <p>{{funcionario.name}}
+                  </p>
+                </div>
+                <div class="col-sm-2">
+                  <p>{{funcionario.matricula}}</p>
+                </div>
+                <div class="col-sm-2">
+                  <p>{{funcionario.funcao.name}}</p>
+                </div>
+                <div class="col-sm-3">
+                  <button (click)="removeFuncionario(i)" class="btn btn-simple pull-right btn-danger btn-icon edit"
+                    matTooltip="Excluir" [matTooltipPosition]="'left'" data-toggle="modal">
+                    <i class="material-icons">delete</i>
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="row btn-space">
+            <button (click)="clearForm(equipeForm)" type="button" class='btn btn-round  pull-left'>Limpar</button>
+
+            <button (click)="updateOrCreate('#equipeModal')" type="submit"
+              class='btn btn-finish btn-fill btn-round btn-parking pull-right'
+              [disabled]="!equipeForm.form.valid">Salvar</button>
+
+            <button (click)="closeModal()" type="button" class='btn btn-round  pull-right'>Voltar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

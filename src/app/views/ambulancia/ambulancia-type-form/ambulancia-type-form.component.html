@@ -1,6 +1,6 @@
 <div class="modal fade generic-modal" id="ambulanciaTypeModal" tabindex="-1" role="dialog"
   aria-labelledby="ambulanciaTypeModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
       <div class="card-header card-header-icon" data-background-color="parking">
@@ -17,7 +17,7 @@
         <form class="form-horizontal" #ambulanciaTypeForm="ngForm">
 
           <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-5">
               <mat-form-field>
                 <input matInput #nameAmbulanciaType [(ngModel)]="obj.name" placeholder="Nome" name="name" type="text"
                   (ngModelChange)="setInputFormat(nameAmbulanciaType)" pattern="(^([A-ZÀ-ÖØ-Ÿ])+([\S]?)+(\s[\S]+)*$)"
@@ -27,6 +27,44 @@
                 Nome já cadastrado, altere o nome*
               </p>
             </div>
+            <div class="col-sm-5">
+              <app-autocomplete placeholder="{{getHolderFuncao()}}" [options]="slcFuncoes" name="funcoes"
+                [(ngModel)]="selectedFuncao" (ngModelChange)="setFuncao()">
+              </app-autocomplete>
+            </div>
+            <button type="button" class='btn btn-finish btn-fill btn-round btn-parking pull-right'
+              [disabled]="!selectFuncao" (click)="addPlant()">Adicionar</button>
+          </div>
+
+          <div class="row" *ngIf="funcoesSelecionadas.length < 1">
+            <h3 class="text-center"><strong>Não há funções Inseridas</strong></h3>
+          </div>
+
+          <div class="row" *ngIf="funcoesSelecionadas.length > 0">
+            <ul>
+              <li>
+                <div class="row">
+                  <div class="col-sm-11">
+                    <strong>Nome</strong>
+                  </div>
+                  <div class="col-sm-1">
+                    <strong class="pull-right">Ações</strong>
+                  </div>
+                </div>
+              </li>
+              <hr>
+              <li class="listSup" *ngFor="let funcao of funcoesSelecionadas; let i = index">
+                <div class="col-sm-11">
+                  <p>{{funcao.name}}</p>
+                </div>
+                <div class="col-sm-1">
+                  <button (click)="removeFuncao(i)" class="btn btn-simple pull-right btn-danger btn-icon edit"
+                    matTooltip="Excluir" [matTooltipPosition]="'left'" data-toggle="modal">
+                    <i class="material-icons">delete</i>
+                  </button>
+                </div>
+              </li>
+            </ul>
           </div>
 
           <div class="row btn-space">

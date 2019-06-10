@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-.wrapper{
+.wrapper {
     background-color: #4f4f4f;
 }
 
@@ -73,12 +73,12 @@ mat-header-row * {
     margin: 0 5px;
 }
 
-.info {
-    padding-top: 2px;
-}
-
 .info>* {
     margin: 0;
+}
+
+.info label {
+    color: #00acc1;
 }
 
 .info h5 {
@@ -137,6 +137,10 @@ mat-header-row * {
 
 .color-parking {
     color: #2ACBF7;
+}
+
+.green-text {
+    color: green;
 }
 
 .passAlerta {

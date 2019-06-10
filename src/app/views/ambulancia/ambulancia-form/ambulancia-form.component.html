@@ -28,14 +28,33 @@
 
             <div class="col-sm-6">
               <mat-form-field>
-                <mat-select [(ngModel)]="obj.ambulanciaType.id" placeholder="{{getHolderAmbulanciaType()}}"
-                  name="ambulancia" required>
-                  <mat-option *ngFor="let ambulancia of ambulancias" [value]="ambulancia.id">
-                    {{ ambulancia.name }}
+                <mat-select [(ngModel)]="obj.ambulanciaType.id"
+                  (ngModelChange)="getFuncoesCategoria(obj.ambulanciaType.id)"
+                  placeholder="{{getHolderAmbulanciaType()}}" name="ambulancia" required>
+                  <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
+                    {{ categoria.name }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
+          </div>
+
+          <div class="row" *ngIf="funcoes.length > 0">
+            <ul>
+              <li>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <strong>Fuções Obrigatórias</strong>
+                  </div>
+                </div>
+              </li>
+              <hr>
+              <li class="listSup" *ngFor="let funcao of funcoes; let i = index">
+                <div class="col-sm-12">
+                  <p>{{funcao.name}}</p>
+                </div>
+              </li>
+            </ul>
           </div>
 
           <div class="row btn-space">

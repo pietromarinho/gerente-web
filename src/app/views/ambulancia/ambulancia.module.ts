@@ -11,6 +11,7 @@ import { AmbulanciaFormComponent } from './ambulancia-form/ambulancia-form.compo
 import { AmbulanciaListComponent } from './ambulancia-list/ambulancia-list.component';
 import { ZonaListComponent } from './zona-list/zona-list.component';
 import { ZonaFormComponent } from './zona-form/zona-form.component';
+import { EasyAutocompleteModule } from 'app/shared/autocomplete/autocomplete.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,14 @@ import { ZonaFormComponent } from './zona-form/zona-form.component';
     ReactiveFormsModule,
     MdModule,
     MaterialModule,
+    EasyAutocompleteModule,
   ],
-  declarations: [AmbulanciaTypeListComponent, AmbulanciaTypeFormComponent, AmbulanciaFormComponent, AmbulanciaListComponent, ZonaListComponent, ZonaFormComponent]
+  declarations: [
+    AmbulanciaTypeListComponent,
+    AmbulanciaTypeFormComponent,
+    AmbulanciaFormComponent,
+    AmbulanciaListComponent,
+    ZonaListComponent,
+    ZonaFormComponent]
 })
 export class AmbulanciaModule { }
